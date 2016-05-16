@@ -4,7 +4,7 @@
   "description": "ROS web_video_server image viewer",
   "main": "app.js",
   "scripts": {
-    "start": "electron app.js"
+    "start": "electron src/app.js"
   },
   "repository": {
     "type": "git",

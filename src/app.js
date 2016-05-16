@@ -23,11 +23,11 @@ app.on("ready", () => {
     width: argv.w,
     height: argv.h,
     darkTheme: true,
-    icon: path.join(__dirname, "/resources/ros.ico")
+    icon: path.join(__dirname, "/resources/icons/ros.ico")
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL("file://" + __dirname + "/index.html");
+  mainWindow.loadURL("file://" + __dirname + "/views/index.html");
 
   // Send command-line arguments to renderer.
   let target = {
