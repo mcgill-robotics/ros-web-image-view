@@ -2,7 +2,7 @@ const path = require("path");
 const {app, BrowserWindow, globalShortcut} = require("electron");
 
 // Set up command-line arguments.
-const yargs = require("yargs")
+const argv = require("yargs")
   .usage("usage: $0 TOPIC [--server addr] [-w num] [-h num] [-q num]")
   .demand(1)
   .default("server", "http://ROS_MASTER_URI:8080/")
@@ -11,9 +11,7 @@ const yargs = require("yargs")
   .default("h", 300).alias("h", "height").describe("h", "Image height")
   .default("q", 30).alias("q", "quality")
   .describe("q", "Image quality (0-100)")
-const argv = process.platform === "darwin" ?
-             yargs.argv :
-             yargs.parse(process.argv.splice(1));
+  .argv;
 
 // Keep a global reference of the window object to save it from the garbage
 // collector.
