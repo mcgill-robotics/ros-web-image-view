@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get app directory.
+APP_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && cd .. && pwd)"
+
+# Go to app directory.
+pushd ${APP_DIR}
+
+# Run application.
+npm start -- $@
