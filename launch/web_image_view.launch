@@ -1,0 +1,14 @@
+<launch>
+  <arg name="topic" />
+  <arg name="server" default="http://localhost:8080" />
+  <arg name="width" default="400" />
+  <arg name="height" default="300" />
+  <arg name="quality" default="30" />
+
+  <node pkg="web_image_view" type="web_image_view" name="web_image_view"
+    args="$(arg topic) --server=$(arg server)
+          -w=$(arg width) -h=$(arg height) -q=$(arg quality)"
+    output="screen" required="true">
+  </node>
+</launch>
+
