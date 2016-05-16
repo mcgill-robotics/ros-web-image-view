@@ -5,7 +5,7 @@ const {app, BrowserWindow, globalShortcut} = require("electron");
 const argv = require("yargs")
   .usage("usage: $0 TOPIC [--server addr] [-w num] [-h num] [-q num]")
   .demand(1)
-  .default("server", "http://ROS_MASTER_URI:8080/")
+  .default("server", "http://localhost:8080/")
   .describe("server", "Video server address")
   .default("w", 400).alias("w", "width").describe("w", "Image width")
   .default("h", 300).alias("h", "height").describe("h", "Image height")
