@@ -11,9 +11,14 @@ body {
   position: relative;
 }
 
-#stream {
+#stream, #status {
   margin: auto;
   top: 0; bottom: 0;
   left: 0; right: 0;
   position: absolute;
+}
+
+#status {
+  width: 32px;
+  height: 32px;
 }

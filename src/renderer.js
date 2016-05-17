@@ -169,6 +169,11 @@ window.addEventListener("load", () => {
   stream = document.getElementById("stream");
   download_lnk = document.getElementById("download");
 
+  // Set warning icon to show on image failure.
+  stream.onerror = function () {
+    document.getElementById("status").src = "../resources/icons/warning.png";
+  }
+
   // Hide stream until ready.
   stream.style.opacity = 0;
 
