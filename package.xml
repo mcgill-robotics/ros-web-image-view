@@ -10,12 +10,13 @@
 
   <url type="website">
     https://github.com/mcgill-robotics/ros-web-image-view
-  </url> 
+  </url>
 
   <author email="mr@anassinator.com">Anass Al</author>
 
   <buildtool_depend>catkin</buildtool_depend>
 
+  <build_depend>npm</build_depend>
   <run_depend>nodejs</run_depend>
   <run_depend>web_video_server</run_depend>
 
