@@ -35,6 +35,13 @@ catkin_make
 
 from the root of your workspace.
 
+On Ubuntu, you might also need to symlink `nodejs` to `node` for this to work.
+This can be done as follows:
+
+```bash
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
+
 ## Running
 
 To run simply launch the `web_video_server` on the remote machine as such:
