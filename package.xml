@@ -16,8 +16,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_depend>npm</build_depend>
-  <run_depend>nodejs</run_depend>
+  <build_depend>nodejs</build_depend>
   <run_depend>web_video_server</run_depend>
 
   <export>
