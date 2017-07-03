@@ -36,7 +36,8 @@ add_custom_target(
   copy_src_to_devel
   DEPENDS clean_src_npm
   COMMENT Copying ${PROJECT_NAME}'s src files to devel
-  COMMAND cp -rf ${PROJECT_SOURCE_DIR} ${CATKIN_DEVEL_PREFIX})
+  COMMAND cp -rf ${PROJECT_SOURCE_DIR} ${CATKIN_DEVEL_PREFIX}
+  COMMAND rm -rf ${CATKIN_DEVEL_PREFIX}/${PROJECT_NAME}/launch/)
 
 ## Install NPM dependencies
 add_custom_target(
