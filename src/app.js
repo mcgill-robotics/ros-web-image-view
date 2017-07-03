@@ -1,10 +1,17 @@
 const path = require("path");
 const {app, BrowserWindow, globalShortcut} = require("electron");
 
+if (!process.argv0.endsWith('electron')) {
+  // Inject a dummy argument if not run through npm because stupid yargs won't
+  // detect the first argument otherwise if the app is packaged.
+  process.argv.splice(1, 0, '');
+}
+
 // Set up command-line arguments.
+const name = "web_image_view";
 const argv = require("yargs")
-  .usage("usage: $0 TOPIC [--server addr] [-w num] [-h num] [-q num]")
-  .demand(1)
+  .usage(`usage: ${name} <topic> [--server addr] [-w num] [-h num] [-q num]`)
+  .required(1, "you need to specify a topic name")
   .default("server", "http://localhost:8080/")
   .describe("server", "Video server address")
   .default("w", 400).alias("w", "width").describe("w", "Image width")
