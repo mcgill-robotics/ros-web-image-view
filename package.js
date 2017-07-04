@@ -7,6 +7,7 @@ packager({
   icon: './src/resources/icons/ros.ico',
   prune: false,
   quiet: true,
+  tmpdir: false,
   out: './release',
   overwrite: true,
 }, (err) => {
