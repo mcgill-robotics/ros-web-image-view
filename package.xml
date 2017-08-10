@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
   <name>web_image_view</name>
-  <version>0.2.2</version>
+  <version>0.2.3</version>
   <description>ROS web_video_server image viewer client</description>
 
   <maintainer email="mr@anassinator.com">Anass Al</maintainer>
