@@ -1,9 +1,10 @@
 <launch>
-  <arg name="topic" />
-  <arg name="server" default="http://localhost:8080" />
-  <arg name="width" default="400" />
-  <arg name="height" default="300" />
-  <arg name="quality" default="30" />
+  <arg name="topic" doc="topic name"/>
+  <arg name="server" default="http://localhost:8080"
+    doc="web_video_server base URL"/>
+  <arg name="width" default="400" doc="starting image width in pixels"/>
+  <arg name="height" default="300" doc="starting image height in pixels"/>
+  <arg name="quality" default="30" doc="starting image quality in %"/>
 
   <node pkg="web_image_view" type="web_image_view" name="web_image_view"
     args="$(arg topic) --server=$(arg server)
