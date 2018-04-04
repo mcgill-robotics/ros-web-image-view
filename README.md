@@ -1,5 +1,9 @@
 # ROS Web Image Viewer
 
+[status]: https://dev.mcgillrobotics.com/buildStatus/icon?job=ros-web-image-view/master
+[url]: https://dev.mcgillrobotics.com/job/ros-web-image-view/job/master
+[![status]][url]
+
 This is an Electron application client to interface with `web_video_server` the
 same way `image_view` does.
 
