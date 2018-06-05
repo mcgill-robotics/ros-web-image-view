@@ -67,11 +67,15 @@ The following command-line arguments can be set:
 -   `--server`: Full address of `web_video_server` including port,
     default: `http://localhost:8080`
 -   `--type`: Stream type (one of `mjpeg`, `vp8`, `ros_compressed`), default:
--   `mjpeg`.
+    `mjpeg`.
 -   `-w, --width`: Image width to stream, default: `400` pixels.
 -   `-h, --height`: Image height to stream, default: `300` pixels.
 -   `-q, --quality`: Image quality (between 0 and 100%), default: `30`.
 -   `--help`: Displays usage information and exists.
+
+**Note**: If the `type` is set to `ros_compressed`, the topic name should not
+include the `/compressed` suffix. `web_video_server` appends that
+automatically.
 
 ## Interaction
 
@@ -105,3 +109,7 @@ shortcuts:
 -   `0`: Sets the quality to 100%.
 -   `+`: Increases the current quality setting by 5%.
 -   `-`: Decreases the current quality setting by 5%.
+
+**Note**: This has no effect when the `type` is `ros_compressed`. The quality
+of the compressed image message published is what you will be transmitted
+regardless of the quality set here.
