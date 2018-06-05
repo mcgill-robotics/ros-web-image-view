@@ -66,9 +66,11 @@ The following command-line arguments can be set:
 
 -   `--server`: Full address of `web_video_server` including port,
     default: `http://localhost:8080`
+-   `--type`: Stream type (one of `mjpeg`, `vp8`, `ros_compressed`), default:
+-   `mjpeg`.
 -   `-w, --width`: Image width to stream, default: `400` pixels.
 -   `-h, --height`: Image height to stream, default: `300` pixels.
--   `-q, --quality`: Image quality (between 0 and 100), default: `30`.
+-   `-q, --quality`: Image quality (between 0 and 100%), default: `30`.
 -   `--help`: Displays usage information and exists.
 
 ## Interaction

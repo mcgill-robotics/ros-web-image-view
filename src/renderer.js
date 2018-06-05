@@ -2,7 +2,7 @@ const remote = require("electron").remote;
 const ipcRenderer = require("electron").ipcRenderer;
 
 let stream, download_lnk;
-let hostname, topic, quality;
+let hostname, topic, quality, type;
 let win = remote.getCurrentWindow();
 
 // Remove all previous window listeners, to fix issues when refreshing.
@@ -25,6 +25,11 @@ function setTopic(name) {
 function setQuality(q) {
   // Sets image quality.
   quality = q;
+}
+
+function setType(t) {
+  // Sets the stream type.
+  type = t;
 }
 
 function setTitle() {
@@ -88,9 +93,9 @@ function updateStream() {
   stream.height = height;
 
   // Stream.
-  stream.src = hostname + "stream?topic=" + topic +
-               "&width=" + width + "&height=" + height +
-               "&quality=" + quality;
+  stream.src = `${hostname}stream?topic=${topic}` +
+               `&width=${width}&height=${height}` +
+               `&quality=${quality}&type=${type}`;
 }
 
 function onKeyPress(e) {
@@ -135,7 +140,7 @@ function onKeyPress(e) {
     default:
       return;
   }
-  
+
   // Update stream and title.
   setTitle();
   updateStream();
@@ -183,10 +188,11 @@ window.addEventListener("load", () => {
     setHostname(message["host"]);
     setTopic(message["topic"]);
     setQuality(message["quality"]);
+    setType(message["type"]);
     setTitle();
 
     // Get a full-size low quality snapshot to determine aspect ratio.
-    stream.src = hostname + "snapshot?topic=" + topic + "&quality=0";
+    stream.src = `${hostname}stream?topic=${topic}&quality=0&type=${type}`;
     stream.addEventListener("load", getAspectRatio, false);
   });
 }, false);
