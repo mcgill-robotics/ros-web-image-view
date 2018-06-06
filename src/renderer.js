@@ -171,16 +171,8 @@ function screenshot(e) {
 
 window.addEventListener("load", () => {
   // Find items on page.
-  stream = document.getElementById("stream");
+  container = document.getElementById("container");
   download_lnk = document.getElementById("download");
-
-  // Set warning icon to show on image failure.
-  stream.onerror = function () {
-    document.getElementById("status").src = "../resources/icons/warning.png";
-  }
-
-  // Hide stream until ready.
-  stream.style.opacity = 0;
 
   // Get command-line arguments.
   ipcRenderer.on("set-target", (event, message) => {
@@ -190,6 +182,25 @@ window.addEventListener("load", () => {
     setQuality(message["quality"]);
     setType(message["type"]);
     setTitle();
+
+    // Add stream to page based on type.
+    if (type === "h264" || type === "vp8" || type === "vp9") {
+      stream = document.createElement("video");
+      stream.autoplay = true;
+      stream.preload = "none";
+    } else {
+      stream = document.createElement("img");
+    }
+    stream.id = "stream"
+    container.appendChild(stream);
+
+    // Set warning icon to show on image failure.
+    stream.onerror = function () {
+      document.getElementById("status").src = "../resources/icons/warning.png";
+    }
+
+    // Hide stream until ready.
+    stream.style.opacity = 0;
 
     // Get a full-size low quality snapshot to determine aspect ratio.
     stream.src = `${hostname}stream?topic=${topic}&quality=0&type=${type}`;
